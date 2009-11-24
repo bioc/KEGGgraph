@@ -1,3 +1,6 @@
+2009-11-24
+KEGGgraph 1.2.1: The KGML file URL has been changed by the KEGG server: "non_metabolic" to "non-metabolic". Thanks Tim Fraser and Marc Carlson for reporting.
+
 2009-10-18
 KEGGgraph 1.1.13: Add Makefile to facilitate the check/install, and the try-download mechanism of retrieveKGML is documented in the vignette.
 2009-10-01
