@@ -1,3 +1,6 @@
+2009-12-15
+KEGGgraph 1.2.2: 'indirect' subtype has been renamed into 'indirect effect', KEGGEdgeSubtype.csv file makes modifications. Thanks Siyuan Zhang for reporting the bug.
+
 2009-11-24
 KEGGgraph 1.2.1: The KGML file URL has been changed by the KEGG server: "non_metabolic" to "non-metabolic". Thanks Tim Fraser and Marc Carlson for reporting.
 
