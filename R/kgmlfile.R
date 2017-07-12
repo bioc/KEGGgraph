@@ -4,7 +4,7 @@ kgmlNonmetabolicName2MetabolicName <- function(destfile) {
 
 getKGMLurl <- function(pathwayid, organism="hsa") {
   ## baseurl <- "ftp://ftp.genome.jp/pub/kegg/xml/kgml/non-metabolic/organisms"
-  baseurl <- "http://www.genome.jp/kegg-bin/download?entry=%s%s&format=kgml"
+  baseurl <- "http://rest.kegg.jp/get/%s%s/kgml"
 
   pathwayid <- gsub("path","",pathwayid)
   pathwayid <- gsub(":","",pathwayid)
@@ -28,7 +28,7 @@ getKGMLurl <- function(pathwayid, organism="hsa") {
 }
 
 kgmlFileName2PathwayName <- function(filename) {
-  if(require(KEGG.db)) {
+  if(requireNamespace("KEGG.db", quietly=TRUE)) {
     basename <- sapply(strsplit(filename, "\\."), function(y) y[[1]])
     basename <- gsub("^[a-z][a-z][a-z]","", basename)
     pathname <- unlist(mget(basename, KEGGPATHID2NAME, ifnotfound=as.list(NA)))
