@@ -44,6 +44,12 @@ exportMethods("getDisplayName",
               "getProduct",
               "show")
 
+export(parsePathwayInfo,
+       parseEntry,
+       parseRelation,
+       parseReaction,
+       getEntryID)
+
 export(translateKEGGID2GeneID,
        translateGeneID2KEGGID,
        translateKEGGgraph)
