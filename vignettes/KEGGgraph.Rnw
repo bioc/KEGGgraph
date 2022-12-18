@@ -1,5 +1,5 @@
 %\VignetteIndexEntry{KEGGgraph: graph approach to KEGG PATHWAY}
-%\VignetteDepends{graph, XML, Rgraphviz, RBGL, org.Hs.eg.db, tinytex}
+%\VignetteDepends{graph, XML, Rgraphviz, RBGL, org.Hs.eg.db}
 %\VignettePackage{KEGGgraph}
 
 \documentclass[11pt]{article}
@@ -52,14 +52,6 @@ The package requires KGML (KEGG XML) files, which can be downloaded from KEGG RE
 \textit{Visualization}: \Rpackage{KEGGgraph} provides functions to visualize KEGG graphs with custom style. Nevertheless users are not restricted by them, alternatively they are free to render the graph with other tools like the ones in \Rpackage{Rgraphviz}.
 
 Besides the functionalities described above, \Rpackage{KEGGgraph} also has tools for remote KGML file retrieval, graph feature study and other related tasks. We will demonstrate them later in this vignette.
-
-<<install_tex, echo=FALSE>>=
-library(tinytex)
-packs <- c("`ae.sty'","`grfext.sty'")
-for (i in 1:length(packs)) {
-	tinytex::parse_install(text = paste('! LaTeX Error: File', packs[i], 'not found.'))
-}
-@
 
 \section{Case studies}
 We load the \Rpackage{KEGGgraph} by typing or pasting the following codes in R
@@ -311,7 +303,7 @@ plot(toprSub, "twopi", nodeAttrs=nAttrs, attrs=list(graph=list(start=2)))
 \section{Other funtionalities}
 Besides the ability to parse and operate on KEGG PATHWAY graph objects, the \Rpackage{KEGGgraph} package also provides functionalities to complement tasks related to deal with KEGG pathways. We introduce some of them here, for a full list of functions please see the package help file:
 
-<<help, echo=TRUE, eval=TRUE>>=
+<<help, echo=TRUE, eval=FALSE>>=
 help(package=KEGGgraph)
 @ 
 
@@ -359,7 +351,7 @@ plot(chemicalGraph, nodeAttrs=nAttrs)
 \end{figure}
 
 \subsection{Expand embedded pathways}
-Function \Rfunction{parseKGMLexpandMaps} is a function to handle with pathways embedding other pathways. For example, pancreatic cancer pathway embeds 9 other pathways including MAPK and ErbB signaling pathway, cell cycle and apoptosis pathway, etc. To parse them into one graph, the users only have to download the KGML file and feed the file name to \Rfunction{parseKGMLexpandMaps}, the function parses the file, analyze the embedded pathways, download their files from KEGG FTP site automatically (alternatively a local repository can be specified for KGML files) and merge the individual pathways into a single graph. For example, the following single line parses MAPK signaling pathway with all its embedded pathways
+Function \Rfunction{parseKGMLexpandMaps} is a function to handle with pathways embedding other pathways. For example, pancreatic cancer pathway embeds 9 other pathways including MAPK and ErbB signaling pathway, cell cycle and apoptosis pathway, etc. To parse them into one graph, the users only have to download the KGML file and feed the file name to \Rfunction{parseKGMLexpandMaps}, the function parses the file, analyze the embedded pathways, download their files from KEGG REST API service automatically (alternatively a local repository can be specified for KGML files) and merge the individual pathways into a single graph. For example, the following single line parses MAPK signaling pathway with all its embedded pathways
 <<mapk14expand, echo=TRUE, eval=TRUE>>=
 mapkGembed <- parseKGMLexpandMaps(mapkKGML)
 @ 
